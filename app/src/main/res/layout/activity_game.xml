@@ -15,49 +15,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center">
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button3"/>
+                    android:layout_height="wrap_content" android:id="@+id/r1c1"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button2"/>
+                    android:layout_height="wrap_content" android:id="@+id/r1c2"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button"/>
+                    android:layout_height="wrap_content" android:id="@+id/r1c3"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center">
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button3"/>
+                    android:layout_height="wrap_content" android:id="@+id/r2c1"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button2"/>
+                    android:layout_height="wrap_content" android:id="@+id/r2c2"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button"/>
+                    android:layout_height="wrap_content" android:id="@+id/r2c3"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center">
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button3"/>
+                    android:layout_height="wrap_content" android:id="@+id/r3c1"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button2"/>
+                    android:layout_height="wrap_content" android:id="@+id/r3c2"/>
             <Button
-                    android:text="Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button"/>
+                    android:layout_height="wrap_content" android:id="@+id/r3c3"/>
         </TableRow>
     </TableLayout>
 </android.support.constraint.ConstraintLayout>
