@@ -8,29 +8,29 @@
         tools:context=".WelcomeActivity">
 
     <Button
-            android:text="Play Vs Friend"
+            android:text="Single Player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPlayVsFriend"
+            android:id="@+id/btnSingleplayer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
     <Button
-            android:text="Play Vs Computer"
+            android:text="Multiplayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPlayVsComputer"
+            android:id="@+id/btnMultiplayer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPlayVsFriend"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnSingleplayer"/>
     <Button
-            android:text="Show Scoreboard"
+            android:text="Scoreboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnShowScoreboard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPlayVsComputer"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnMultiplayer"/>
 
 </android.support.constraint.ConstraintLayout>

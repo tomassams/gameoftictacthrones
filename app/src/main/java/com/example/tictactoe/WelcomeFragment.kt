@@ -24,13 +24,13 @@ class WelcomeFragment : Fragment() {
 
         val intent = Intent(activity, GameActivity::class.java)
 
-        btnPlayVsFriend.setOnClickListener {
+        btnSingleplayer.setOnClickListener {
             val fm = activity?.supportFragmentManager
             val frag = StartGameDialogFragment()
             frag.show(fm, "tag")
         }
 
-        btnPlayVsComputer.setOnClickListener {
+        btnMultiplayer.setOnClickListener {
             startActivity(intent)
         }
 
