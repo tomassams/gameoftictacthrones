@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import com.example.tictactoe.controller.GameManager
 import com.example.tictactoe.model.GameState
 import com.example.tictactoe.model.Seed
@@ -20,9 +21,9 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
 
         buttons = arrayOf(
-            cell_0x0, cell_0x1, cell_0x2,
-            cell_1x0, cell_1x1, cell_1x2,
-            cell_2x0, cell_2x1, cell_2x2
+            cell_0, cell_1, cell_2,
+            cell_3, cell_4, cell_5,
+            cell_6, cell_7, cell_8
         )
 
         for(button in buttons) {
@@ -37,34 +38,41 @@ class GameActivity : AppCompatActivity() {
         view ->
 
         when(view.id) {
-            cell_0x0.id -> {
-                game.playMove(game.currentPlayer, 0)
-            }
-            cell_0x1.id -> game.playMove(game.currentPlayer, 1)
-            cell_0x2.id -> game.playMove(game.currentPlayer, 2)
-            cell_1x0.id -> game.playMove(game.currentPlayer, 3)
-            cell_1x1.id -> game.playMove(game.currentPlayer, 4)
-            cell_1x2.id -> game.playMove(game.currentPlayer, 5)
-            cell_2x0.id -> game.playMove(game.currentPlayer, 6)
-            cell_2x1.id -> game.playMove(game.currentPlayer, 7)
-            cell_2x2.id -> game.playMove(game.currentPlayer, 8)
+            cell_0.id -> game.playMove(game.currentPlayer, 0)
+            cell_1.id -> game.playMove(game.currentPlayer, 1)
+            cell_2.id -> game.playMove(game.currentPlayer, 2)
+            cell_3.id -> game.playMove(game.currentPlayer, 3)
+            cell_4.id -> game.playMove(game.currentPlayer, 4)
+            cell_5.id -> game.playMove(game.currentPlayer, 5)
+            cell_6.id -> game.playMove(game.currentPlayer, 6)
+            cell_7.id -> game.playMove(game.currentPlayer, 7)
+            cell_8.id -> game.playMove(game.currentPlayer, 8)
         }
+
+        Log.w("gameState", "GameState check: ${game.currentGameState} ")
 
         updateBoard()
 
         when(game.currentGameState) {
-            GameState.CROSS_WINS    -> null
-            GameState.CIRCLE_WINS   -> null
-            GameState.DRAW          -> null
+            GameState.CROSS_WINS    -> Toast.makeText(this, "Cross wins!", Toast.LENGTH_LONG).show()
+            GameState.CIRCLE_WINS   -> Toast.makeText(this, "Circle wins!", Toast.LENGTH_LONG).show()
+            GameState.DRAW          -> Toast.makeText(this, "Its a draw!", Toast.LENGTH_LONG).show()
             GameState.PLAYING       -> null
         }
+
+
     }
 
     fun updateBoard() {
 
         for(i in 0..8) {
+
             val currentButton = buttons[i]
             val currentCell = game.board.cells[i]
+
+            if(game.currentGameState != GameState.PLAYING) {
+                currentButton.isEnabled = false
+            }
 
             val character = when(currentCell.data) {
                 Seed.CROSS  -> "X"
