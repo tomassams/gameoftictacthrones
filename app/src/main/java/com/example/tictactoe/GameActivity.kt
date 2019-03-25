@@ -49,8 +49,6 @@ class GameActivity : AppCompatActivity() {
             cell_8.id -> game.playMove(game.currentPlayer, 8)
         }
 
-        Log.w("gameState", "GameState check: ${game.currentGameState} ")
-
         updateBoard()
 
         when(game.currentGameState) {
@@ -59,7 +57,6 @@ class GameActivity : AppCompatActivity() {
             GameState.DRAW          -> Toast.makeText(this, "Its a draw!", Toast.LENGTH_LONG).show()
             GameState.PLAYING       -> null
         }
-
 
     }
 
@@ -82,6 +79,19 @@ class GameActivity : AppCompatActivity() {
 
             currentButton.text = character
         }
+
+    }
+
+    fun restartBoard(view: View) {
+
+        for(i in 0..8) {
+
+            buttons[i].isEnabled = true
+            buttons[i].text = ""
+
+        }
+
+        game.startGame()
 
     }
 

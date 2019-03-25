@@ -6,7 +6,7 @@ import com.example.tictactoe.model.Cell
 import com.example.tictactoe.model.GameState
 import com.example.tictactoe.model.Seed
 
-class GameManager() {
+class GameManager {
 
     val board: Board = Board()
 
@@ -37,16 +37,14 @@ class GameManager() {
 
         if(board.checkForVictory(player)) {
 
-            Log.w("victoryCheck", "victory!")
-
             when(player) {
                 Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
                 Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
             }
-        } else if(board.checkForDraw()) {
 
-            Log.w("victoryCheck", "draw!")
+        }
 
+        if(board.checkForDraw()) {
             currentGameState = GameState.DRAW
         }
 
