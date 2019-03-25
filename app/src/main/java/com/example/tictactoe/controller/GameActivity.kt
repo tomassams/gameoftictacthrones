@@ -1,12 +1,12 @@
-package com.example.tictactoe
+package com.example.tictactoe.controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import com.example.tictactoe.controller.GameManager
+import com.example.tictactoe.R
+import com.example.tictactoe.model.GameManager
 import com.example.tictactoe.model.GameState
 import com.example.tictactoe.model.Seed
 import kotlinx.android.synthetic.main.activity_game.*

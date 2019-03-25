@@ -1,7 +1,8 @@
-package com.example.tictactoe
+package com.example.tictactoe.controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.tictactoe.R
 
 class WelcomeActivity : AppCompatActivity() {
 

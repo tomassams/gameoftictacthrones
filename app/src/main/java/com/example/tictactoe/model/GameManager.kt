@@ -1,4 +1,4 @@
-package com.example.tictactoe.controller
+package com.example.tictactoe.model
 
 import android.util.Log
 import com.example.tictactoe.model.Board
