@@ -38,6 +38,8 @@ class WelcomeFragment : Fragment() {
         btnShowScoreboard.setOnClickListener {
             startActivity(intent)
         }
+
+
     }
 
 }
