@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.tictactoe.R
 import com.example.tictactoe.model.GameManager
+import com.example.tictactoe.model.GameMode
 import com.example.tictactoe.model.GameState
 import com.example.tictactoe.model.Seed
 import kotlinx.android.synthetic.main.activity_game.*
@@ -37,19 +38,32 @@ class GameActivity : AppCompatActivity() {
     val cellClickHandler = View.OnClickListener {
         view ->
 
-        when(view.id) {
-            cell_0.id -> game.playMove(game.currentPlayer, 0)
-            cell_1.id -> game.playMove(game.currentPlayer, 1)
-            cell_2.id -> game.playMove(game.currentPlayer, 2)
-            cell_3.id -> game.playMove(game.currentPlayer, 3)
-            cell_4.id -> game.playMove(game.currentPlayer, 4)
-            cell_5.id -> game.playMove(game.currentPlayer, 5)
-            cell_6.id -> game.playMove(game.currentPlayer, 6)
-            cell_7.id -> game.playMove(game.currentPlayer, 7)
-            cell_8.id -> game.playMove(game.currentPlayer, 8)
+        var moveMade: Boolean =
+            when(view.id) {
+                cell_0.id -> game.playMove(game.currentPlayer, 0)
+                cell_1.id -> game.playMove(game.currentPlayer, 1)
+                cell_2.id -> game.playMove(game.currentPlayer, 2)
+                cell_3.id -> game.playMove(game.currentPlayer, 3)
+                cell_4.id -> game.playMove(game.currentPlayer, 4)
+                cell_5.id -> game.playMove(game.currentPlayer, 5)
+                cell_6.id -> game.playMove(game.currentPlayer, 6)
+                cell_7.id -> game.playMove(game.currentPlayer, 7)
+                cell_8.id -> game.playMove(game.currentPlayer, 8)
+                else      -> false
+            }
+
+        if(moveMade) {
+            updateBoard()
+            setNextPlayer()
         }
 
-        updateBoard()
+        if(moveMade && game.currentGameMode == GameMode.SINGLE_PLAYER) {
+
+            game.playBotMove()
+
+            updateBoard()
+            setNextPlayer()
+        }
 
         when(game.currentGameState) {
             GameState.CROSS_WINS    -> Toast.makeText(this, "Cross wins!", Toast.LENGTH_LONG).show()
@@ -58,6 +72,13 @@ class GameActivity : AppCompatActivity() {
             GameState.PLAYING       -> null
         }
 
+    }
+
+    fun setNextPlayer() {
+        when(game.currentPlayer) {
+            Seed.CIRCLE -> game.currentPlayer = Seed.CROSS
+            Seed.CROSS -> game.currentPlayer = Seed.CIRCLE
+        }
     }
 
     fun updateBoard() {

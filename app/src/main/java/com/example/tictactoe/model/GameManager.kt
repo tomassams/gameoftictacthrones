@@ -1,12 +1,11 @@
 package com.example.tictactoe.model
 
 import android.util.Log
-import com.example.tictactoe.model.Board
-import com.example.tictactoe.model.Cell
-import com.example.tictactoe.model.GameState
-import com.example.tictactoe.model.Seed
 import kotlin.random.Random
 
+/**
+ * a game manager to handle app interactions with the board
+ */
 class GameManager {
 
     val board: Board = Board()
@@ -14,69 +13,93 @@ class GameManager {
 
     var currentGameState = GameState.PLAYING
     var currentPlayer = Seed.CIRCLE
+    var currentGameMode = GameMode.SINGLE_PLAYER
 
+    /**
+     * starts and initializes the board and game
+     */
     fun startGame() {
         board.init()
 
         currentGameState = GameState.PLAYING
         currentPlayer = Seed.CIRCLE
+        currentGameMode = GameMode.SINGLE_PLAYER
     }
 
-    fun playMove(player: Seed, cellnum: Int) {
+    /**
+     * play a human initiated move on a cell on the board
+     *
+     * @params the player making the move and which cell he is attempting to pick
+     * @return whether or not a valid move was made and executed
+     */
+    fun playMove(player: Seed, cellNum: Int): Boolean {
 
-        val cell: Cell = board.cells[cellnum]
-
-        var gameEnded: Boolean = false
-
-        if(cell.data == Seed.EMPTY) {
-            cell.data = player
-
-            gameEnded = evaluateGameStatus(player)
-
-            if(!gameEnded) {
-                when(player) {
-                    Seed.CROSS  -> currentPlayer = Seed.CIRCLE
-                    Seed.CIRCLE -> currentPlayer = Seed.CROSS
-                }
-            }
+        // shouldn't happen but lets be safe
+        if(cellNum < 0 || cellNum > 8) {
+            return false
         }
 
-        var random = Random.nextInt(board.cells.size)
-        while(!gameEnded) {
-            if(board.cells[random].data == Seed.EMPTY) {
-                board.cells[random].data = currentPlayer
-                break
-            } else {
-                random = Random.nextInt(board.cells.size)
-            }
+        player
+
+        val cell: Cell = board.cells[cellNum]
+
+        // clicked cell isn't empty, do nothing
+        if(cell.data != Seed.EMPTY) {
+            return false
         }
 
-        gameEnded = evaluateGameStatus(currentPlayer)
-        if(!gameEnded) {
-            when(currentPlayer) {
-                Seed.CROSS  -> currentPlayer = Seed.CIRCLE
-                Seed.CIRCLE -> currentPlayer = Seed.CROSS
-            }
-        }
+        // set the selected seed in selected cell
+        cell.data = player
 
-
-    }
-
-    fun evaluateGameStatus(player: Seed): Boolean {
+        // check for win or draw
         if(board.checkForVictory(player)) {
             when(player) {
                 Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
                 Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
             }
-            return true
+            Log.w("gamestate", "current state is $currentGameState for player move $currentPlayer")
         }
-
-        if(board.checkForDraw()) {
+        else if(board.checkForDraw()) {
             currentGameState = GameState.DRAW
-            return true
+            Log.w("gamestate", "current state is $currentGameState for player move $currentPlayer")
         }
 
-        return false
+        return true
+
+    }
+
+    /**
+     * play a computer initiated move on a cell on the board
+     *
+     * TODO: implement this with an unbeatable algorithm for that sweet "extra hard" AI, e.g. the minimax algorithm
+     */
+    fun playBotMove() {
+
+        if(currentGameState != GameState.PLAYING) {
+            return
+        }
+
+        var random = Random.nextInt(board.cells.size)
+
+        while(currentGameState == GameState.PLAYING) {
+            if(board.cells[random].data == Seed.EMPTY) {
+                board.cells[random].data = currentPlayer
+                break
+            }
+            else {
+                random = Random.nextInt(board.cells.size)
+            }
+        }
+
+        if(board.checkForVictory(currentPlayer)) {
+            when(currentPlayer) {
+                Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
+                Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
+            }
+        } else if(board.checkForDraw()) {
+            currentGameState = GameState.DRAW
+        }
+
     }
 
 
