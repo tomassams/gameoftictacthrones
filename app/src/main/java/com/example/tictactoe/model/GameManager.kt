@@ -32,7 +32,7 @@ class GameManager {
      * @params the player making the move and which cell he is attempting to pick
      * @return whether or not a valid move was made and executed
      */
-    fun playMove(player: Seed, cellNum: Int): Boolean {
+    fun playHumanMove(player: Seed, cellNum: Int): Boolean {
 
         // shouldn't happen but lets be safe
         if(cellNum < 0 || cellNum > 8) {

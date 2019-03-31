@@ -21,8 +21,6 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        val mode = intent.getStringExtra("GameMode")
-
         buttons = arrayOf(
             cell_0, cell_1, cell_2,
             cell_3, cell_4, cell_5,
@@ -32,6 +30,8 @@ class GameActivity : AppCompatActivity() {
         for(button in buttons) {
             button.setOnClickListener(cellClickHandler)
         }
+
+        val mode = intent.getStringExtra("GameMode")
 
         when(mode) {
             "SINGLE_PLAYER" -> game.startGame(GameMode.SINGLE_PLAYER)
@@ -43,26 +43,30 @@ class GameActivity : AppCompatActivity() {
     val cellClickHandler = View.OnClickListener {
         view ->
 
-        var moveMade: Boolean =
-            when(view.id) {
-                cell_0.id -> game.playMove(game.currentPlayer, 0)
-                cell_1.id -> game.playMove(game.currentPlayer, 1)
-                cell_2.id -> game.playMove(game.currentPlayer, 2)
-                cell_3.id -> game.playMove(game.currentPlayer, 3)
-                cell_4.id -> game.playMove(game.currentPlayer, 4)
-                cell_5.id -> game.playMove(game.currentPlayer, 5)
-                cell_6.id -> game.playMove(game.currentPlayer, 6)
-                cell_7.id -> game.playMove(game.currentPlayer, 7)
-                cell_8.id -> game.playMove(game.currentPlayer, 8)
-                else      -> false
-            }
+        var cellNum: Int = when(view.id) {
+            cell_0.id -> 0
+            cell_1.id -> 1
+            cell_2.id -> 2
+            cell_3.id -> 3
+            cell_4.id -> 4
+            cell_5.id -> 5
+            cell_6.id -> 6
+            cell_7.id -> 7
+            cell_8.id -> 8
+            else      -> -1
+        }
+
+        val moveMade: Boolean = game.playHumanMove(game.currentPlayer, cellNum)
 
         if(moveMade) {
             updateBoard()
             setNextPlayer()
         }
 
-        if(moveMade && game.currentGameMode == GameMode.SINGLE_PLAYER) {
+        // if its a single player game, the bot has to make its move too
+        if(moveMade
+            && game.currentGameMode == GameMode.SINGLE_PLAYER
+            && game.currentGameState == GameState.PLAYING) {
 
             game.playBotMove()
 
@@ -76,7 +80,6 @@ class GameActivity : AppCompatActivity() {
             GameState.DRAW          -> Toast.makeText(this, "Its a draw!", Toast.LENGTH_LONG).show()
             GameState.PLAYING       -> null
         }
-
     }
 
     fun setNextPlayer() {

@@ -27,9 +27,8 @@ class WelcomeFragment : Fragment() {
         val intent = Intent(activity, GameActivity::class.java)
 
         btnSingleplayer.setOnClickListener {
-            val fm = activity?.supportFragmentManager
-            val frag = StartGameDialogFragment()
-            frag.show(fm, "tag")
+            intent.putExtra("GameMode", "SINGLE_PLAYER")
+            startActivity(intent)
         }
 
         btnMultiplayer.setOnClickListener {
@@ -37,11 +36,12 @@ class WelcomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // testing fragments in this one
         btnShowScoreboard.setOnClickListener {
-            intent.putExtra("GameMode", "SINGLE_PLAYER")
-            startActivity(intent)
+            val fm = activity?.supportFragmentManager
+            val frag = StartGameDialogFragment()
+            frag.show(fm, "tag")
         }
-
 
     }
 
