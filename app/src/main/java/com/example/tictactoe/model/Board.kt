@@ -1,7 +1,11 @@
 package com.example.tictactoe.model
 
+/**
+ * represents a classic 3x3 tic tac toe board
+ */
 class Board {
 
+    // not sure if we have any use for the x&y coordinates just yet, but lets go with it
     var cells = arrayOf(
         Cell(0,0), Cell(0,1), Cell(0,2),
         Cell(1,0), Cell(1,1), Cell(1,2),
@@ -12,12 +16,18 @@ class Board {
         init()
     }
 
+    /**
+     * clear the board on every initialization
+     */
     fun init() {
         for(cell in cells) {
             cell.clear()
         }
     }
 
+    /**
+     * check if a player has won the game by having 3 consecutive horizontal, vertical or diagonal cells
+     */
     fun checkForVictory(player: Seed): Boolean {
 
         // horizontal
@@ -49,6 +59,10 @@ class Board {
         return false
     }
 
+    /**
+     * check if the board is in a draw state, which it is if there are no empty cells left
+     * AND a victory check has returned false
+     */
     fun checkForDraw(): Boolean {
 
         // if there are empty cells, there is still moves to be made

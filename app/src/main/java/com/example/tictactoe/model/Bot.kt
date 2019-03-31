@@ -1,5 +1,8 @@
 package com.example.tictactoe.model
 
+/**
+ * represents a computer player and is used to generate new moves based on a given board
+ */
 class Bot(board: Board) {
 
     var cells = board.cells

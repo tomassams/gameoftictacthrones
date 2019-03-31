@@ -21,6 +21,8 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+        val mode = intent.getStringExtra("GameMode")
+
         buttons = arrayOf(
             cell_0, cell_1, cell_2,
             cell_3, cell_4, cell_5,
@@ -31,8 +33,11 @@ class GameActivity : AppCompatActivity() {
             button.setOnClickListener(cellClickHandler)
         }
 
-        game.startGame()
-
+        when(mode) {
+            "SINGLE_PLAYER" -> game.startGame(GameMode.SINGLE_PLAYER)
+            "MULTI_PLAYER"  -> game.startGame(GameMode.MULTI_PLAYER)
+            else            -> game.startGame(GameMode.SINGLE_PLAYER)
+        }
     }
 
     val cellClickHandler = View.OnClickListener {
@@ -112,7 +117,7 @@ class GameActivity : AppCompatActivity() {
 
         }
 
-        game.startGame()
+        game.startGame(game.currentGameMode)
 
     }
 

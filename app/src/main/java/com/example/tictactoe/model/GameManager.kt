@@ -18,12 +18,12 @@ class GameManager {
     /**
      * starts and initializes the board and game
      */
-    fun startGame() {
+    fun startGame(mode: GameMode) {
         board.init()
 
         currentGameState = GameState.PLAYING
         currentPlayer = Seed.CIRCLE
-        currentGameMode = GameMode.SINGLE_PLAYER
+        currentGameMode = mode
     }
 
     /**

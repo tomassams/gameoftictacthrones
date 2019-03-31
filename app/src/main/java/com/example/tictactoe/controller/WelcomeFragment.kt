@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.tictactoe.R
+import com.example.tictactoe.model.GameMode
 import kotlinx.android.synthetic.main.fragment_welcome.*
 
 class WelcomeFragment : Fragment() {
@@ -32,10 +33,12 @@ class WelcomeFragment : Fragment() {
         }
 
         btnMultiplayer.setOnClickListener {
+            intent.putExtra("GameMode", "MULTI_PLAYER")
             startActivity(intent)
         }
 
         btnShowScoreboard.setOnClickListener {
+            intent.putExtra("GameMode", "SINGLE_PLAYER")
             startActivity(intent)
         }
 
