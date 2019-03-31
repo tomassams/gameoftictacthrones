@@ -1,6 +1,5 @@
 package com.example.tictactoe.model
 
-// TODO: Implement with a MINIMAX algorithm
 class Bot(board: Board) {
 
     var cells = board.cells

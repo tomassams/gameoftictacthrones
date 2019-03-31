@@ -71,7 +71,7 @@ class GameManager {
     /**
      * play a computer initiated move on a cell on the board
      *
-     * TODO: implement this with an unbeatable algorithm for that sweet "extra hard" AI, e.g. the minimax algorithm
+     * TODO: should probably have its own class, and implemented as a minimax algorithm
      */
     fun playBotMove() {
 
