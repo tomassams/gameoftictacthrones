@@ -70,10 +70,14 @@ class GameManager {
 
     /**
      * play a computer initiated move on a cell on the board
-     *
-     * TODO: should probably have its own class, and implemented as a minimax algorithm
      */
     fun playBotMove() {
+
+        // OPTIMALLY it should probably pick a move somewhat like this:
+        // val botMove = bot.getBestMove(board)
+        // board.cells[botMove].data = currentPlayer
+
+        // BUT for now, just pick a random empty cell :o)
 
         if(currentGameState != GameState.PLAYING) {
             return
