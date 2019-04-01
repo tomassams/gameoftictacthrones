@@ -39,8 +39,6 @@ class GameManager {
             return false
         }
 
-        player
-
         val cell: Cell = board.cells[cellNum]
 
         // clicked cell isn't empty, do nothing
@@ -57,11 +55,9 @@ class GameManager {
                 Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
                 Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
             }
-            Log.w("gamestate", "current state is $currentGameState for player move $currentPlayer")
         }
         else if(board.checkForDraw()) {
             currentGameState = GameState.DRAW
-            Log.w("gamestate", "current state is $currentGameState for player move $currentPlayer")
         }
 
         return true
@@ -83,17 +79,8 @@ class GameManager {
             return
         }
 
-        var random = Random.nextInt(board.cells.size)
-
-        while(currentGameState == GameState.PLAYING) {
-            if(board.cells[random].data == Seed.EMPTY) {
-                board.cells[random].data = currentPlayer
-                break
-            }
-            else {
-                random = Random.nextInt(board.cells.size)
-            }
-        }
+        val botMove = bot.getRandomMove()
+        board.cells[botMove].data = currentPlayer
 
         if(board.checkForVictory(currentPlayer)) {
             when(currentPlayer) {
