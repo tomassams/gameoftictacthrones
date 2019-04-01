@@ -9,11 +9,12 @@ import kotlin.random.Random
 class GameManager {
 
     val board: Board = Board()
-    val bot: Bot = Bot(board)
 
     var currentGameState = GameState.PLAYING
     var currentPlayer = Seed.CIRCLE
     var currentGameMode = GameMode.SINGLE_PLAYER
+
+    val bot: Bot = Bot(board, currentPlayer, opposite(currentPlayer))
 
     /**
      * starts and initializes the board and game
@@ -79,7 +80,8 @@ class GameManager {
             return
         }
 
-        val botMove = bot.getRandomMove()
+        //val botMove = bot.getRandomMove()
+        val botMove = bot.getBestMove()
         board.cells[botMove].data = currentPlayer
 
         if(board.checkForVictory(currentPlayer)) {
@@ -91,6 +93,14 @@ class GameManager {
             currentGameState = GameState.DRAW
         }
 
+    }
+
+    fun opposite(seed: Seed): Seed {
+        return when(seed) {
+            Seed.CIRCLE -> Seed.CROSS
+            Seed.CROSS  -> Seed.CIRCLE
+            else        -> Seed.EMPTY
+        }
     }
 
 

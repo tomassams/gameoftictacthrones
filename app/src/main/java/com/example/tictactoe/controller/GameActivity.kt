@@ -83,10 +83,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun setNextPlayer() {
-        when(game.currentPlayer) {
-            Seed.CIRCLE -> game.currentPlayer = Seed.CROSS
-            Seed.CROSS -> game.currentPlayer = Seed.CIRCLE
-        }
+        game.currentPlayer = game.opposite(game.currentPlayer)
     }
 
     fun updateBoard() {
