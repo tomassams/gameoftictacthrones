@@ -10,9 +10,9 @@ class GameManager {
 
     val board: Board = Board()
 
-    var currentGameState = GameState.PLAYING
-    var currentPlayer = Seed.CIRCLE
-    var currentGameMode = GameMode.SINGLE_PLAYER
+    var currentGameState    = GameState.PLAYING
+    var currentPlayer       = Seed.CIRCLE
+    var currentGameMode     = GameMode.SINGLE_PLAYER
 
     val bot: Bot = Bot(board, currentPlayer, opposite(currentPlayer))
 
@@ -69,13 +69,6 @@ class GameManager {
      * play a computer initiated move on a cell on the board
      */
     fun playBotMove() {
-
-        // OPTIMALLY it should probably pick a move somewhat like this:
-        // val botMove = bot.getBestMove(board)
-        // board.cells[botMove].data = currentPlayer
-
-        // BUT for now, just pick a random empty cell :o)
-
         if(currentGameState != GameState.PLAYING) {
             return
         }

@@ -36,7 +36,7 @@ class Bot(board: Board, human: Seed, bot: Seed) {
      */
     fun getBestMove(): Int {
 
-        val bestMove = minimax(bot, 7)
+        val bestMove: Array<Int> = minimax(bot, 7)
 
         return bestMove[1]
     }
