@@ -1,17 +1,13 @@
 package com.example.tictactoe.model
 
-import android.util.Log
 import kotlin.random.Random
 
 /**
  * represents a computer player and is used to generate new moves based on a given board
  */
-class Bot(board: Board, human: Seed, bot: Seed) {
+class Bot(board: Board, private val human: Seed, private val bot: Seed) {
 
-    val cells = board.cells
-
-    val bot: Seed = bot
-    val human: Seed = human
+    private val cells = board.cells
 
     /**
      * generates and returns a random available move on the board.
@@ -46,9 +42,9 @@ class Bot(board: Board, human: Seed, bot: Seed) {
      *
      * @returns an array with the best score [0] used in the recursive calls, and the best move [1] returned in the end
      */
-    fun minimax(player: Seed, depth: Int): Array<Int> {
+    private fun minimax(player: Seed, depth: Int): Array<Int> {
 
-        val moves = getMoves()
+        val moves: MutableList<Int> = getMoves()
 
         var bestMove: Int = 0
 
@@ -92,7 +88,7 @@ class Bot(board: Board, human: Seed, bot: Seed) {
     /**
      * generates a list of available moves to make (empty cells)
      */
-    fun getMoves(): MutableList<Int> {
+    private fun getMoves(): MutableList<Int> {
         val moves: MutableList<Int> = mutableListOf()
 
         // exit if anyone has won already
@@ -112,7 +108,7 @@ class Bot(board: Board, human: Seed, bot: Seed) {
     /**
      * returns a minimax score based on the board status
      */
-    fun score(): Int {
+    private fun score(): Int {
         if(evaluate(human)) {
             return -10
         }
@@ -127,7 +123,7 @@ class Bot(board: Board, human: Seed, bot: Seed) {
     /**
      * evaluate if a player has won based on the board cells
      */
-    fun evaluate(player: Seed): Boolean {
+    private fun evaluate(player: Seed): Boolean {
 
         // horizontal
         if(

@@ -1,8 +1,5 @@
 package com.example.tictactoe.model
 
-import android.util.Log
-import kotlin.random.Random
-
 /**
  * a game manager to handle app interactions with the board
  */
@@ -14,7 +11,7 @@ class GameManager {
     var currentPlayer       = Seed.CIRCLE
     var currentGameMode     = GameMode.SINGLE_PLAYER
 
-    val bot: Bot = Bot(board, currentPlayer, opposite(currentPlayer))
+    private val bot: Bot = Bot(board, currentPlayer, opposite(currentPlayer))
 
     /**
      * starts and initializes the board and game
@@ -62,7 +59,6 @@ class GameManager {
         }
 
         return true
-
     }
 
     /**
@@ -73,8 +69,9 @@ class GameManager {
             return
         }
 
-        //val botMove = bot.getRandomMove()
-        val botMove = bot.getBestMove()
+        //val botMove = bot.getRandomMove() // use for "easy" difficulty
+        val botMove = bot.getBestMove() // use for "expert" difficulty
+
         board.cells[botMove].data = currentPlayer
 
         if(board.checkForVictory(currentPlayer)) {
@@ -95,6 +92,5 @@ class GameManager {
             else        -> Seed.EMPTY
         }
     }
-
 
 }

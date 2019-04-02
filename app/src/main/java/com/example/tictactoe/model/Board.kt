@@ -7,9 +7,9 @@ class Board {
 
     // not sure if we have any use for the x&y coordinates just yet, but lets go with it
     var cells = arrayOf(
-        Cell(0,0), Cell(0,1), Cell(0,2),
-        Cell(1,0), Cell(1,1), Cell(1,2),
-        Cell(2,0), Cell(2,1), Cell(2,2)
+        Cell(), Cell(), Cell(),
+        Cell(), Cell(), Cell(),
+        Cell(), Cell(), Cell()
     )
 
     init {
