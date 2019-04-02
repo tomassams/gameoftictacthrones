@@ -57,6 +57,11 @@
                     android:text="Restart"
                     android:layout_height="wrap_content" android:id="@+id/button" android:layout_width="wrap_content"
                     android:onClick="restartBoard"/>
+            <Chronometer
+                    android:id="@+id/chronometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"/>
         </TableRow>
     </TableLayout>
 </android.support.constraint.ConstraintLayout>

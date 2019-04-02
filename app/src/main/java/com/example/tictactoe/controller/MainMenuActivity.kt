@@ -7,11 +7,11 @@ import android.util.Log
 import com.example.tictactoe.R
 import com.example.tictactoe.model.AppDatabase
 
-class WelcomeActivity : AppCompatActivity() {
+class MainMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        setContentView(R.layout.activity_main_menu)
 
         val db = Room.databaseBuilder(
             applicationContext,

@@ -48,13 +48,13 @@ class GameManager {
         cell.data = player
 
         // check for win or draw
-        if(board.checkForVictory(player)) {
+        if(board.hasPlayerWon(player)) {
             when(player) {
                 Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
                 Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
             }
         }
-        else if(board.checkForDraw()) {
+        else if(board.isDraw()) {
             currentGameState = GameState.DRAW
         }
 
@@ -74,12 +74,12 @@ class GameManager {
 
         board.cells[botMove].data = currentPlayer
 
-        if(board.checkForVictory(currentPlayer)) {
+        if(board.hasPlayerWon(currentPlayer)) {
             when(currentPlayer) {
                 Seed.CIRCLE     -> currentGameState = GameState.CIRCLE_WINS
                 Seed.CROSS      -> currentGameState = GameState.CROSS_WINS
             }
-        } else if(board.checkForDraw()) {
+        } else if(board.isDraw()) {
             currentGameState = GameState.DRAW
         }
 

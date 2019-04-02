@@ -28,7 +28,7 @@ class Board {
     /**
      * check if a player has won the game by having 3 consecutive horizontal, vertical or diagonal cells
      */
-    fun checkForVictory(player: Seed): Boolean {
+    fun hasPlayerWon(player: Seed): Boolean {
 
         // horizontal
         if(
@@ -63,7 +63,7 @@ class Board {
      * check if the board is in a draw state, which it is if there are no empty cells left
      * AND a victory check has returned false
      */
-    fun checkForDraw(): Boolean {
+    fun isDraw(): Boolean {
 
         // if there are empty cells, there is still moves to be made
         for(cell in cells) {

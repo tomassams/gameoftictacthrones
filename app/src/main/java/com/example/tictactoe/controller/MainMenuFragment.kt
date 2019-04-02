@@ -8,17 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.tictactoe.R
-import com.example.tictactoe.model.GameMode
-import kotlinx.android.synthetic.main.fragment_welcome.*
+import kotlinx.android.synthetic.main.fragment_main_menu.*
 
-class WelcomeFragment : Fragment() {
+class MainMenuFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,11 +35,8 @@ class WelcomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // testing fragments in this one
         btnShowScoreboard.setOnClickListener {
-            val fm = activity?.supportFragmentManager
-            val frag = StartGameDialogFragment()
-            frag.show(fm, "tag")
+
         }
 
     }

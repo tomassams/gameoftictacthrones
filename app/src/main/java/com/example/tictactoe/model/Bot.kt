@@ -92,7 +92,7 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
         val moves: MutableList<Int> = mutableListOf()
 
         // exit if anyone has won already
-        if(evaluate(human) || evaluate(bot)) {
+        if(hasPlayerWon(human) || hasPlayerWon(bot)) {
             return moves
         }
 
@@ -109,10 +109,10 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
      * returns a minimax score based on the board status
      */
     private fun score(): Int {
-        if(evaluate(human)) {
+        if(hasPlayerWon(human)) {
             return -10
         }
-        else if(evaluate(bot)) {
+        else if(hasPlayerWon(bot)) {
             return 10
         }
         else {
@@ -120,10 +120,8 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
         }
     }
 
-    /**
-     * evaluate if a player has won based on the board cells
-     */
-    private fun evaluate(player: Seed): Boolean {
+
+    private fun hasPlayerWon(player: Seed): Boolean {
 
         // horizontal
         if(
@@ -152,6 +150,5 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
         }
 
         return false
-
     }
 }

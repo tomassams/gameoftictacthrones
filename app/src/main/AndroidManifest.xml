@@ -11,7 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".controller.GameActivity">
         </activity>
-        <activity android:name=".controller.WelcomeActivity">
+        <activity android:name=".controller.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

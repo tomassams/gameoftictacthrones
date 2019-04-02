@@ -5,12 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".controller.WelcomeActivity">
+        tools:context=".controller.MainMenuActivity">
 
     <fragment
             android:id="@+id/welcome_fragment"
-            android:name="com.example.tictactoe.controller.WelcomeFragment"
-            tools:layout="@layout/fragment_welcome"
+            android:name="com.example.tictactoe.controller.MainMenuFragment"
+            tools:layout="@layout/fragment_main_menu"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

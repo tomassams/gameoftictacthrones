@@ -14,12 +14,15 @@ import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {
 
-    val game: GameManager = GameManager()
-    var buttons = arrayOf<Button>()
+    private val game: GameManager = GameManager()
+    private var buttons: Array<Button> = arrayOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+//        val chronometer = chronometer
+//        chronometer.start()
 
         buttons = arrayOf(
             cell_0, cell_1, cell_2,
@@ -40,10 +43,10 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    val cellClickHandler = View.OnClickListener {
+    private val cellClickHandler: View.OnClickListener = View.OnClickListener {
         view ->
 
-        var cellNum: Int = when(view.id) {
+        val cellNum: Int = when(view.id) {
             cell_0.id -> 0
             cell_1.id -> 1
             cell_2.id -> 2
@@ -82,11 +85,11 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    fun setNextPlayer() {
+    private fun setNextPlayer() {
         game.currentPlayer = game.opposite(game.currentPlayer)
     }
 
-    fun updateBoard() {
+    private fun updateBoard() {
 
         for(i in 0..8) {
 
