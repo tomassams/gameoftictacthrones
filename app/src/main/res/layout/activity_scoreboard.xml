@@ -5,14 +5,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".controller.MainMenuActivity">
-
-    <fragment
-            android:layout_width="match_parent"
-              android:layout_height="match_parent"
-            android:id="@+id/mainmenu_fragment"
-            android:name="com.example.tictactoe.controller.MainMenuFragment"
-            tools:layout="@layout/fragment_main_menu"
-              />
+        tools:context=".controller.ScoreboardActivity">
 
 </android.support.constraint.ConstraintLayout>

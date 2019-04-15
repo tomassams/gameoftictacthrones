@@ -28,6 +28,7 @@ dependencies {
     def coroutines = "1.0.0"
     def room_version = "1.1.1"
 
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     apply plugin: 'kotlin-kapt'
 
     implementation "android.arch.persistence.room:runtime:$room_version"
