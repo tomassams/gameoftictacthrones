@@ -20,8 +20,11 @@
                     android:id="@+id/playerOneNameEditText" android:hint="Player 1 Name"/>
             <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" tools:src="@tools:sample/avatars[2]"
-                    android:id="@+id/imageView2"/>
+                    android:layout_height="wrap_content"
+                    tools:src="@tools:sample/avatars"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:id="@+id/playerOneImage"
+            />
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center">
             <EditText
@@ -29,11 +32,13 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editText3" android:hint="Player 2 Name"/>
+                    android:id="@+id/playerTwoNameEditText" android:hint="Player 2 Name"/>
             <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" tools:src="@tools:sample/avatars[3]"
-                    android:id="@+id/imageView3"/>
+                    android:layout_height="wrap_content"
+                    tools:src="@tools:sample/avatars[3]"
+                    tools:srcCompat="@tools:sample/avatars[3]"
+                    android:id="@+id/playerTwoImage"/>
         </TableRow>
         <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
             <Button

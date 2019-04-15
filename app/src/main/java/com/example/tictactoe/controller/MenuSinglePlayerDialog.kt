@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.example.tictactoe.R
 import kotlinx.android.synthetic.main.fragment_menu_multi_player_dialog.*
@@ -39,10 +40,17 @@ class MenuSinglePlayerDialog : DialogFragment() {
             else -> "ERROR"
         }
 
-        if(seed != "ERROR") {
+        val playerName = singlePlayerNameEditText.text.toString()
+
+        if(playerName.isEmpty()) {
+            Toast.makeText(activity, "Please fill out your name first!", Toast.LENGTH_LONG).show()
+        }
+
+        if(seed != "ERROR" && playerName.isNotEmpty()) {
             val intent = Intent(activity, GameActivity::class.java)
             intent.putExtra("GameMode", "SINGLE_PLAYER")
-            intent.putExtra("ChosenSeed", seed)
+            intent.putExtra("PlayerOneSeed", seed)
+            intent.putExtra("PlayerOneName", playerName)
             startActivity(intent)
         }
     }
