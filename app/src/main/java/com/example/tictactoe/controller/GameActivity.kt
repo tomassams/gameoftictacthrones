@@ -35,12 +35,18 @@ class GameActivity : AppCompatActivity() {
         }
 
         val mode = intent.getStringExtra("GameMode")
+        val firstPlayer: Seed = when(intent.getStringExtra("PlayerOneSeed")) {
+            "CIRCLE" -> Seed.CIRCLE
+            "CROSS" -> Seed.CROSS
+            else -> throw Error()
+        }
 
         when(mode) {
-            "SINGLE_PLAYER" -> game.startGame(GameMode.SINGLE_PLAYER)
-            "MULTI_PLAYER"  -> game.startGame(GameMode.MULTI_PLAYER)
-            else            -> game.startGame(GameMode.SINGLE_PLAYER)
+            "SINGLE_PLAYER" -> game.startGame(GameMode.SINGLE_PLAYER, firstPlayer)
+            "MULTI_PLAYER"  -> game.startGame(GameMode.MULTI_PLAYER, firstPlayer)
+            else            -> throw Error()
         }
+
     }
 
     private val cellClickHandler: View.OnClickListener = View.OnClickListener {
@@ -67,10 +73,11 @@ class GameActivity : AppCompatActivity() {
         }
 
         // if its a single player game, the bot has to make its move too
-        if(moveMade
+        if (
+            moveMade
             && game.currentGameMode == GameMode.SINGLE_PLAYER
-            && game.currentGameState == GameState.PLAYING) {
-
+            && game.currentGameState == GameState.PLAYING
+        ) {
             game.playBotMove()
 
             updateBoard()
@@ -87,6 +94,12 @@ class GameActivity : AppCompatActivity() {
 
     private fun setNextPlayer() {
         game.currentPlayer = game.opposite(game.currentPlayer)
+
+        turnInfoTextView.text = when(game.currentPlayer) {
+            Seed.CROSS -> "CROSS turn"
+            Seed.CIRCLE -> "CIRCLE turn"
+            else -> throw Error()
+        }
     }
 
     private fun updateBoard() {
@@ -108,7 +121,6 @@ class GameActivity : AppCompatActivity() {
 
             currentButton.text = character
         }
-
     }
 
     fun restartBoard(view: View) {
@@ -120,7 +132,7 @@ class GameActivity : AppCompatActivity() {
 
         }
 
-        game.startGame(game.currentGameMode)
+        game.startGame(game.currentGameMode, game.currentPlayer)
 
     }
 

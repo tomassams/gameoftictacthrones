@@ -16,11 +16,11 @@ class GameManager {
     /**
      * starts and initializes the board and game
      */
-    fun startGame(mode: GameMode) {
+    fun startGame(mode: GameMode, firstPlayer: Seed) {
         board.init()
 
         currentGameState = GameState.PLAYING
-        currentPlayer = Seed.CIRCLE
+        currentPlayer = firstPlayer
         currentGameMode = mode
     }
 
