@@ -43,13 +43,10 @@ class MainMenuFragment : Fragment() {
         }
 
         btnShowScoreboard.setOnClickListener {
-            val intent = Intent(activity, GameActivity::class.java)
-            intent.putExtra("GameMode", "MULTI_PLAYER")
+            val intent = Intent(activity, ScoreboardActivity::class.java)
             startActivity(intent)
         }
-
     }
-
 
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

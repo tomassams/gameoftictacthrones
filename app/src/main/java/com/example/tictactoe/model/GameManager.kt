@@ -7,11 +7,11 @@ class GameManager {
 
     val board: Board = Board()
 
-    var currentGameState    = GameState.PLAYING
-    var currentPlayer       = Seed.CIRCLE
-    var currentGameMode     = GameMode.SINGLE_PLAYER
+    lateinit var currentGameState: GameState
+    lateinit var currentPlayer: Seed
+    lateinit var currentGameMode: GameMode
 
-    private val bot: Bot = Bot(board, currentPlayer, opposite(currentPlayer))
+    private lateinit var bot: Bot
 
     /**
      * starts and initializes the board and game
@@ -22,6 +22,8 @@ class GameManager {
         currentGameState = GameState.PLAYING
         currentPlayer = firstPlayer
         currentGameMode = mode
+
+        bot = Bot(board, currentPlayer, opposite(currentPlayer))
     }
 
     /**
@@ -32,17 +34,10 @@ class GameManager {
      */
     fun playHumanMove(player: Seed, cellNum: Int): Boolean {
 
-        // shouldn't happen but lets be safe
-        if(cellNum < 0 || cellNum > 8) {
-            return false
-        }
+        if(cellNum < 0 || cellNum > 8) return false
+        if(board.cells[cellNum].data != Seed.EMPTY) return false
 
         val cell: Cell = board.cells[cellNum]
-
-        // clicked cell isn't empty, do nothing
-        if(cell.data != Seed.EMPTY) {
-            return false
-        }
 
         // set the selected seed in selected cell
         cell.data = player
