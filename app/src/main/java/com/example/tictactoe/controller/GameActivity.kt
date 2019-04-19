@@ -22,6 +22,8 @@ class GameActivity : AppCompatActivity() {
 
     private lateinit var playerOneSeed: Seed
 
+    private lateinit var winner: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
@@ -58,6 +60,7 @@ class GameActivity : AppCompatActivity() {
 
         // start the game
         game.startGame(gameMode, playerOneSeed)
+        updateBoard()
     }
 
     /**
@@ -83,8 +86,8 @@ class GameActivity : AppCompatActivity() {
         val moveMade: Boolean = game.playHumanMove(game.currentPlayer, cellNum)
 
         if(moveMade) {
-            updateBoard()
             setNextPlayer()
+            updateBoard()
         }
 
         // if its a single player game, the bot has to make its move too
@@ -95,27 +98,14 @@ class GameActivity : AppCompatActivity() {
         ) {
             game.playBotMove()
 
-            updateBoard()
             setNextPlayer()
+            updateBoard()
         }
 
         when(game.currentGameState) {
-            GameState.CROSS_WINS    -> {
-                val winner = seedToPlayerName(Seed.CROSS)
-
-                addToScoreboard(winner)
-
-                Toast.makeText(this, "Cross ($winner) wins!", Toast.LENGTH_LONG).show()
-            }
-            GameState.CIRCLE_WINS   -> {
-                val winner = seedToPlayerName(Seed.CIRCLE)
-
-                addToScoreboard(winner)
-
-                Toast.makeText(this, "Circle ($winner) wins!", Toast.LENGTH_LONG).show()
-            }
-            GameState.DRAW          -> Toast.makeText(this, "Its a draw!", Toast.LENGTH_LONG).show()
-            GameState.PLAYING       -> null
+            GameState.CROSS_WINS    -> saveWinner(winner = seedToPlayerName(Seed.CROSS))
+            GameState.CIRCLE_WINS   -> saveWinner(winner = seedToPlayerName(Seed.CIRCLE))
+            else -> null
         }
     }
 
@@ -129,23 +119,30 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    private fun addToScoreboard(winner: String) {
+    private fun saveWinner(winner: String) {
         winnerViewModel = ViewModelProviders.of(this).get(WinnerViewModel::class.java)
-
         winnerViewModel.insert(Winner(name = winner))
     }
 
     private fun setNextPlayer() {
         game.currentPlayer = game.opposite(game.currentPlayer)
-
-        turnInfoTextView.text = when(game.currentPlayer) {
-            Seed.CROSS -> "CROSS turn"
-            Seed.CIRCLE -> "CIRCLE turn"
-            else -> return
-        }
     }
 
     private fun updateBoard() {
+        val player = seedToPlayerName(game.currentPlayer)
+
+        turnInfoTextView.text = when(game.currentGameState) {
+            GameState.CIRCLE_WINS -> {
+                val player = seedToPlayerName(Seed.CIRCLE)
+                "$player wins"
+            }
+            GameState.CROSS_WINS -> {
+                val player = seedToPlayerName(Seed.CROSS)
+                "$player wins"
+            }
+            GameState.DRAW -> "Its a draw!"
+            GameState.PLAYING -> "Next move: $player"
+        }
 
         for(i in 0..8) {
 
@@ -175,7 +172,8 @@ class GameActivity : AppCompatActivity() {
 
         }
 
-        game.startGame(game.currentGameMode, game.opposite(game.currentPlayer))
+        game.startGame(game.currentGameMode, playerOneSeed)
+        updateBoard()
 
     }
 
