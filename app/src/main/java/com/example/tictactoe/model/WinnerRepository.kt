@@ -1,4 +1,4 @@
-package com.example.tictactoe.controller
+package com.example.tictactoe.model
 
 import android.arch.lifecycle.LiveData
 import android.support.annotation.WorkerThread
