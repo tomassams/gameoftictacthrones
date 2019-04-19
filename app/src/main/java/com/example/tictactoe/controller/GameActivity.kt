@@ -3,7 +3,6 @@ package com.example.tictactoe.controller
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -13,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() {
 
-    private lateinit var playerViewModel: PlayerViewModel
+    private lateinit var winnerViewModel: WinnerViewModel
 
     private val game: GameManager = GameManager()
     private var buttons: Array<Button> = arrayOf()
@@ -131,9 +130,9 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun addToScoreboard(winner: String) {
-        playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel::class.java)
+        winnerViewModel = ViewModelProviders.of(this).get(WinnerViewModel::class.java)
 
-        playerViewModel.insert(Player(name = winner))
+        winnerViewModel.insert(Winner(name = winner))
     }
 
     private fun setNextPlayer() {

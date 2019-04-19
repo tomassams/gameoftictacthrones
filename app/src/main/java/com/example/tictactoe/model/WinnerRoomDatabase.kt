@@ -10,16 +10,16 @@ import kotlinx.coroutines.experimental.Dispatchers
 import kotlinx.coroutines.experimental.IO
 import kotlinx.coroutines.experimental.launch
 
-@Database(entities = arrayOf(Player::class), version = 1)
-public abstract class PlayerRoomDatabase : RoomDatabase() {
+@Database(entities = arrayOf(Winner::class), version = 1)
+public abstract class WinnerRoomDatabase : RoomDatabase() {
 
-    abstract fun playerDao(): PlayerDao
+    abstract fun winnerDao(): WinnerDao
 
     companion object {
         @Volatile
-        private var INSTANCE: PlayerRoomDatabase? = null
+        private var INSTANCE: WinnerRoomDatabase? = null
 
-        private class PlayerDatabaseCallback(
+        private class WinnerDatabaseCallback(
             private val scope: CoroutineScope
         ) : RoomDatabase.Callback() {
 
@@ -27,25 +27,25 @@ public abstract class PlayerRoomDatabase : RoomDatabase() {
                 super.onOpen(db)
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
-                        populateDatabase(database.playerDao())
+                        populateDatabase(database.winnerDao())
                     }
                 }
             }
         }
 
-        fun populateDatabase(playerDao: PlayerDao) {
-            playerDao.deleteAll()
+        fun populateDatabase(winnerDao: WinnerDao) {
+            winnerDao.deleteAll()
 
-            var player = Player(name = "Tomas")
-            playerDao.insert(player)
-            player = Player(name  = "Maren")
-            playerDao.insert(player)
+            var winner = Winner(name = "Tomas")
+            winnerDao.insert(winner)
+            winner = Winner(name  = "Maren")
+            winnerDao.insert(winner)
         }
 
         fun getDatabase(
             context: Context,
             scope: CoroutineScope
-        ): PlayerRoomDatabase {
+        ): WinnerRoomDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -53,9 +53,9 @@ public abstract class PlayerRoomDatabase : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    PlayerRoomDatabase::class.java,
-                    "Player_database"
-                ).addCallback(Companion.PlayerDatabaseCallback(scope))
+                    WinnerRoomDatabase::class.java,
+                    "Winner_database"
+                ).addCallback(Companion.WinnerDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance
