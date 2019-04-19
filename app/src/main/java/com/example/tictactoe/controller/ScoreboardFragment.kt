@@ -1,6 +1,5 @@
 package com.example.tictactoe.controller
 
-
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context

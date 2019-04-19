@@ -6,7 +6,6 @@ import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.tictactoe.R
 import kotlinx.android.synthetic.main.fragment_menu_multi_player_dialog.*
 

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import android.widget.Chronometer
 import com.example.tictactoe.R
 import com.example.tictactoe.model.*
 import kotlinx.android.synthetic.main.activity_game.*
@@ -22,14 +22,12 @@ class GameActivity : AppCompatActivity() {
 
     private lateinit var playerOneSeed: Seed
 
-    private lateinit var winner: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-//        val chronometer = chronometer
-//        chronometer.start()
+        val chronometer: Chronometer = chronometer
+        chronometer.start()
 
         // declare and attach listeners to the 9 game cells
         buttons = arrayOf (cell_0, cell_1, cell_2, cell_3, cell_4, cell_5, cell_6, cell_7, cell_8)
@@ -119,15 +117,24 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * store the winner in the Room database
+     */
     private fun saveWinner(winner: String) {
         winnerViewModel = ViewModelProviders.of(this).get(WinnerViewModel::class.java)
         winnerViewModel.insert(Winner(name = winner))
     }
 
+    /**
+     * changes turns
+     */
     private fun setNextPlayer() {
         game.currentPlayer = game.opposite(game.currentPlayer)
     }
 
+    /**
+     * refreshes the visible board with the latest data
+     */
     private fun updateBoard() {
         val player = seedToPlayerName(game.currentPlayer)
 
@@ -145,7 +152,6 @@ class GameActivity : AppCompatActivity() {
         }
 
         for(i in 0..8) {
-
             val currentButton = buttons[i]
             val currentCell = game.board.cells[i]
 
@@ -158,23 +164,7 @@ class GameActivity : AppCompatActivity() {
                 Seed.CIRCLE -> "O"
                 else -> ""
             }
-
             currentButton.text = character
         }
     }
-
-    fun restartBoard(view: View) {
-
-        for(i in 0..8) {
-
-            buttons[i].isEnabled = true
-            buttons[i].text = ""
-
-        }
-
-        game.startGame(game.currentGameMode, playerOneSeed)
-        updateBoard()
-
-    }
-
 }
