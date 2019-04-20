@@ -1,11 +1,13 @@
 package com.example.tictactoe.controller
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Chronometer
+import android.widget.ImageButton
 import com.example.tictactoe.R
 import com.example.tictactoe.model.*
 import kotlinx.android.synthetic.main.activity_game.*
@@ -15,7 +17,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var winnerViewModel: WinnerViewModel
 
     private val game: GameManager = GameManager()
-    private var buttons: Array<Button> = arrayOf()
+    private var buttons: Array<ImageButton> = arrayOf()
 
     private lateinit var playerOneName: String
     private lateinit var playerTwoName: String
@@ -28,6 +30,11 @@ class GameActivity : AppCompatActivity() {
 
         val chronometer: Chronometer = chronometer
         chronometer.start()
+
+        mainmenu_btn.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+        }
 
         // declare and attach listeners to the 9 game cells
         buttons = arrayOf (cell_0, cell_1, cell_2, cell_3, cell_4, cell_5, cell_6, cell_7, cell_8)
@@ -159,12 +166,12 @@ class GameActivity : AppCompatActivity() {
                 currentButton.isEnabled = false
             }
 
-            val character = when(currentCell.data) {
-                Seed.CROSS  -> "X"
-                Seed.CIRCLE -> "O"
-                else -> ""
+            // TODO: fix house selection
+            when(currentCell.data) {
+                Seed.CROSS  -> currentButton.setImageResource(R.drawable.baratheon)
+                Seed.CIRCLE -> currentButton.setImageResource(R.drawable.targaryen)
             }
-            currentButton.text = character
+
         }
     }
 }

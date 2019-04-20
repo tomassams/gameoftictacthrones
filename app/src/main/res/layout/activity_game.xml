@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+        android:id="@+id/gameLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background_thewall"
         tools:context=".controller.GameActivity">
 
     <TableLayout
@@ -26,52 +28,82 @@
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:minHeight="100dp"
                 android:gravity="center">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_0"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_1"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_2"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:minHeight="100dp"
                 android:gravity="center">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_3"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_4"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_5"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:minHeight="100dp"
                 android:gravity="center">
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_6"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_7"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+            <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.7"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
                     android:id="@+id/cell_8"/>
         </TableRow>
         <TableRow
@@ -92,6 +124,7 @@
                 android:gravity="center"
                 android:padding="10dp">
             <Button
+                    android:id="@+id/mainmenu_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Main menu"
