@@ -3,7 +3,7 @@ package com.example.tictactoe.model
 /**
  * a game manager to handle app interactions with the board
  */
-class GameManager {
+class Game {
 
     val board: Board = Board()
 

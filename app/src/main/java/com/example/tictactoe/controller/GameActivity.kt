@@ -20,7 +20,7 @@ class GameActivity : AppCompatActivity() {
 
     private lateinit var winnerViewModel: WinnerViewModel
 
-    private val game: GameManager = GameManager()
+    private val game: Game = Game()
     private var buttons: Array<ImageButton> = arrayOf()
 
     private lateinit var playerOneName: String
