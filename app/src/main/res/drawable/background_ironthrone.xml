@@ -3,4 +3,4 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:gravity="fill_horizontal|clip_vertical"
-        android:src="@drawable/ironthrone"/>
+        android:src="@drawable/bgimage_ironthrone"/>

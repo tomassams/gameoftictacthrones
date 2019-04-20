@@ -8,13 +8,13 @@ import android.os.Bundle
 import android.support.v4.content.res.ResourcesCompat
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Chronometer
 import android.widget.ImageButton
 import com.example.tictactoe.R
 import com.example.tictactoe.model.*
+import com.example.tictactoe.room.Winner
+import com.example.tictactoe.room.WinnerViewModel
 import kotlinx.android.synthetic.main.activity_game.*
-import kotlinx.android.synthetic.main.activity_scoreboard.*
 
 class GameActivity : AppCompatActivity() {
 
@@ -178,8 +178,8 @@ class GameActivity : AppCompatActivity() {
 
             // TODO: fix house selection
             when(currentCell.data) {
-                Seed.CROSS  -> currentButton.setImageResource(R.drawable.baratheon)
-                Seed.CIRCLE -> currentButton.setImageResource(R.drawable.targaryen)
+                Seed.CROSS  -> currentButton.setImageResource(R.drawable.house_baratheon)
+                Seed.CIRCLE -> currentButton.setImageResource(R.drawable.house_targaryen)
             }
 
         }

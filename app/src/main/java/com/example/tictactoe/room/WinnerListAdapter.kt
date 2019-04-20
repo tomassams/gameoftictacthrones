@@ -1,4 +1,4 @@
-package com.example.tictactoe.model
+package com.example.tictactoe.room
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

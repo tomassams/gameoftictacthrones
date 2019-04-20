@@ -1,4 +1,4 @@
-package com.example.tictactoe.model
+package com.example.tictactoe.room
 
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
@@ -58,7 +58,7 @@ public abstract class WinnerRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     WinnerRoomDatabase::class.java,
                     "Winner_database"
-                ).addCallback(Companion.WinnerDatabaseCallback(scope))
+                ).addCallback(WinnerDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance

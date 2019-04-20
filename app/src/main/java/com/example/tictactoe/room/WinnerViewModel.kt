@@ -1,4 +1,4 @@
-package com.example.tictactoe.model
+package com.example.tictactoe.room
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel

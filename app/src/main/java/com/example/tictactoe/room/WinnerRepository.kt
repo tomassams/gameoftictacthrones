@@ -1,9 +1,7 @@
-package com.example.tictactoe.model
+package com.example.tictactoe.room
 
 import android.arch.lifecycle.LiveData
 import android.support.annotation.WorkerThread
-import com.example.tictactoe.model.Winner
-import com.example.tictactoe.model.WinnerDao
 
 
 class WinnerRepository(private val winnerDao: WinnerDao) {
