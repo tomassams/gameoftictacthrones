@@ -10,18 +10,18 @@
         tools:context=".controller.GameActivity">
     <TextView
             android:id="@+id/turnInfoTextView"
-            android:text="Game status display"
             style="@style/got_font"
+            android:text="Game status display"
             android:paddingTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tableLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
     <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:id="@+id/tableLayout"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +46,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:padding="10dp">
-            <Chronometer
-                    android:id="@+id/chronometer"
-                    style="@style/got_font"
-                    android:paddingTop="20dp"
-            />
+            <Chronometer android:id="@+id/chronometer" style="@style/got_font"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
