@@ -3,8 +3,10 @@ package com.example.tictactoe.controller
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +14,9 @@ import android.view.ViewGroup
 import com.example.tictactoe.R
 import com.example.tictactoe.model.WinnerListAdapter
 import com.example.tictactoe.model.WinnerViewModel
+import kotlinx.android.synthetic.main.activity_scoreboard.*
 import kotlinx.android.synthetic.main.fragment_scoreboard.*
+import kotlinx.android.synthetic.main.recyclerview_item.*
 
 class ScoreboardFragment : Fragment() {
 
@@ -37,8 +41,11 @@ class ScoreboardFragment : Fragment() {
 
         winnerViewModel.allWinners.observe(this, Observer { winners ->
             // Update the cached copy of the words in the adapter.
-            winners?.let { adapter.setWinners(it) }
+            winners?.let {
+                adapter.setWinners(it)
+            }
         })
+
     }
 
 

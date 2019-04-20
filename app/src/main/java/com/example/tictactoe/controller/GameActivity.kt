@@ -2,8 +2,11 @@ package com.example.tictactoe.controller
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Chronometer
@@ -11,6 +14,7 @@ import android.widget.ImageButton
 import com.example.tictactoe.R
 import com.example.tictactoe.model.*
 import kotlinx.android.synthetic.main.activity_game.*
+import kotlinx.android.synthetic.main.activity_scoreboard.*
 
 class GameActivity : AppCompatActivity() {
 
@@ -30,6 +34,11 @@ class GameActivity : AppCompatActivity() {
 
         val chronometer: Chronometer = chronometer
         chronometer.start()
+
+
+        val myCustomFont : Typeface? = ResourcesCompat.getFont(this, R.font.gameofthrones)
+        turnInfoTextView.typeface = myCustomFont
+        chronometer.typeface = myCustomFont
 
         mainmenu_btn.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
@@ -128,6 +137,7 @@ class GameActivity : AppCompatActivity() {
      * store the winner in the Room database
      */
     private fun saveWinner(winner: String) {
+        Log.w("winLog", "saving $winner as the winner!")
         winnerViewModel = ViewModelProviders.of(this).get(WinnerViewModel::class.java)
         winnerViewModel.insert(Winner(name = winner))
     }

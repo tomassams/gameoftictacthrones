@@ -13,4 +13,31 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="got_font">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:shadowColor">#7F000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="cell_imagebutton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:alpha">0.7</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="cellgrid_tablerow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:minHeight">100dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
