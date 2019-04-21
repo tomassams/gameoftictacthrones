@@ -11,7 +11,7 @@ import kotlinx.coroutines.experimental.IO
 import kotlinx.coroutines.experimental.launch
 
 @Database(entities = arrayOf(Winner::class), version = 1)
-public abstract class WinnerRoomDatabase : RoomDatabase() {
+abstract class WinnerRoomDatabase : RoomDatabase() {
 
     abstract fun winnerDao(): WinnerDao
 

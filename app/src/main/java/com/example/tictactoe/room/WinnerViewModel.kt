@@ -7,6 +7,7 @@ import kotlinx.coroutines.experimental.*
 import kotlinx.coroutines.experimental.android.Main
 import kotlin.coroutines.experimental.CoroutineContext
 
+
 class WinnerViewModel(application: Application) : AndroidViewModel(application) {
 
     private var parentJob = Job()
