@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">TicTacToe</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Game of TTT</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="player_1_name">Player 1 Name</string>
+    <string name="player_2_name">Player 2 Name</string>
+    <string name="start_game">Start Game</string>
+    <string name="your_name">Your name</string>
+    <string name="select_your_house_to_start">Select your house to start</string>
+    <string name="single_player">Single Player</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="game_status_display_placeholder">Game status display placeholder</string>
+    <string name="main_menu">Main menu</string>
+    <string name="game_of_tic_tac_thrones">Game of \nTic Tac Thrones</string>
 </resources>

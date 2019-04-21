@@ -40,8 +40,10 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
     <style name="house_image">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:minHeight">65dp</item>
+        <item name="android:minWidth">65dp</item>
+        <item name="android:layout_width">65dp</item>
+        <item name="android:layout_height">65dp</item>
         <item name="android:padding">8dp</item>
         <item name="android:scaleType">fitCenter</item>
     </style>

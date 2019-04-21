@@ -17,27 +17,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
         <Button
-                android:text="Single Player"
+                android:id="@+id/btnSingleplayer"
+                android:text="@string/single_player"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnSingleplayer"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         <Button
-                android:text="Multiplayer"
+                android:id="@+id/btnMultiplayer"
+                android:text="@string/multiplayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnMultiplayer"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnSingleplayer"/>
         <Button
-                android:text="Scoreboard"
+                android:id="@+id/btnShowScoreboard"
+                android:text="@string/scoreboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnShowScoreboard"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnMultiplayer"/>

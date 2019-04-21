@@ -20,6 +20,5 @@ class MainMenuActivity : AppCompatActivity() {
         // set the custom font on our header text
         val gotFont : Typeface? = ResourcesCompat.getFont(this, R.font.gameofthrones)
         headerTextView.typeface = gotFont
-        subHeaderTextView.typeface = gotFont
     }
 }

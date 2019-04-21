@@ -12,35 +12,36 @@
     <TextView
             android:id="@+id/turnInfoTextView"
             style="@style/got_font"
-            android:text="Game status display"
-            android:paddingTop="20dp"
+            android:text="@string/game_status_display_placeholder"
+            android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tableLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+    />
     <TableLayout
             android:id="@+id/tableLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/turnInfoTextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
         <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_0" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_1" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_2" style="@style/cell_imagebutton"/>
+            <ImageButton android:id="@+id/cell_0" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_1" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_2" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
         </TableRow>
         <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_3" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_4" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_5" style="@style/cell_imagebutton"/>
+            <ImageButton android:id="@+id/cell_3" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_4" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_5" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
         </TableRow>
         <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_6" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_7" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_8" style="@style/cell_imagebutton"/>
+            <ImageButton android:id="@+id/cell_6" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_7" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
+            <ImageButton android:id="@+id/cell_8" style="@style/cell_imagebutton" tools:ignore="ContentDescription"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"
@@ -58,7 +59,7 @@
                     android:id="@+id/mainmenu_btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Main menu"
+                    android:text="@string/main_menu"
             />
         </TableRow>
     </TableLayout>

@@ -1,52 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".controller.MenuMultiPlayerDialog">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".controller.MenuMultiPlayerDialog">
     <TableLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp">
-
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center">
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
             <EditText
+                    android:id="@+id/playerOneNameEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:hint="@string/player_1_name"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/playerOneNameEditText" android:hint="Player 1 Name"/>
+                    android:importantForAutofill="no"
+            />
             <ImageView
                     style="@style/house_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/house_baratheon"
                     android:id="@+id/playerOneImage"
+                    android:src="@drawable/house_baratheon"
+                    tools:ignore="ContentDescription"
             />
         </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center">
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
             <EditText
+                    android:id="@+id/playerTwoNameEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:hint="@string/player_2_name"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/playerTwoNameEditText" android:hint="Player 2 Name"/>
+                    android:importantForAutofill="no"
+            />
             <ImageView
                     style="@style/house_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/playerTwoImage"
                     android:src="@drawable/house_targaryen"
-                    android:id="@+id/playerTwoImage"/>
+                    tools:ignore="ContentDescription"
+            />
         </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <Button
-                    android:text="Start Game"
+                    android:id="@+id/startMultiPlayerGameBtn"
+                    android:text="@string/start_game"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/startMultiPlayerGameBtn"
-                    android:layout_weight="1"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+            />
         </TableRow>
     </TableLayout>
-
-</android.support.constraint.ConstraintLayout >
+</android.support.constraint.ConstraintLayout>

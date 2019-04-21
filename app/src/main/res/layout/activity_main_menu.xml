@@ -10,19 +10,14 @@
 
     <TextView
             android:id="@+id/headerTextView"
-            android:text="Game of"
+            android:text="@string/game_of_tic_tac_thrones"
             style="@style/got_font"
-            android:paddingTop="20dp"
+            android:textSize="40sp"
+            android:padding="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-            android:id="@+id/subHeaderTextView"
-            android:text="Tic Tac Thrones"
-            style="@style/got_font"
-            app:layout_constraintTop_toBottomOf="@+id/headerTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+    />
     <fragment
             android:id="@+id/mainmenu_fragment"
             android:name="com.example.tictactoe.controller.MainMenuFragment"
