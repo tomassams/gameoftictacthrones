@@ -23,6 +23,8 @@ class GameActivity : AppCompatActivity() {
     private val game: Game = Game()
     private var buttons: Array<ImageButton> = arrayOf()
 
+    private lateinit var timer: Timer
+
     private lateinit var playerOneName: String
     private lateinit var playerTwoName: String
 
@@ -32,13 +34,11 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        val chronometer: Chronometer = chronometer
-        chronometer.start()
+        timer = Timer(game_timer)
+        timer.start()
 
-
-        val myCustomFont : Typeface? = ResourcesCompat.getFont(this, R.font.gameofthrones)
-        turnInfoTextView.typeface = myCustomFont
-        chronometer.typeface = myCustomFont
+        val gotFont : Typeface? = ResourcesCompat.getFont(this, R.font.gameofthrones)
+        turnInfoTextView.typeface = gotFont
 
         mainmenu_btn.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
@@ -76,6 +76,7 @@ class GameActivity : AppCompatActivity() {
         game.startGame(gameMode, playerOneSeed)
         updateBoard()
     }
+
 
     /**
      * Handles button clicks in the game cells, ie. when anyone attempts to play a move
@@ -178,10 +179,39 @@ class GameActivity : AppCompatActivity() {
 
             // TODO: fix house selection
             when(currentCell.data) {
-                Seed.CROSS  -> currentButton.setImageResource(R.drawable.house_baratheon)
-                Seed.CIRCLE -> currentButton.setImageResource(R.drawable.house_targaryen)
+                Seed.CROSS  -> currentButton.setImageResource(R.drawable.house_targaryen)
+                Seed.CIRCLE -> currentButton.setImageResource(R.drawable.house_baratheon)
             }
 
         }
+    }
+
+
+    /*
+    TODO: decide when to start and stop the timer based on these activity lifecycle methods
+    it isnt necessarily intended to stop on app pause..
+     */
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

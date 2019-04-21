@@ -46,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:padding="10dp">
-            <Chronometer android:id="@+id/chronometer" style="@style/got_font"/>
+            <Chronometer android:id="@+id/game_timer" style="@style/got_font"/>
         </TableRow>
         <TableRow
                 android:layout_width="match_parent"

@@ -46,10 +46,10 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
 
         val moves: MutableList<Int> = getMoves()
 
-        var bestMove: Int = 0
+        var bestMove = 0
 
-        var currentScore: Int = 0
-        var bestScore: Int = 0
+        var currentScore = 0
+        var bestScore = 0
 
         when(player) {
             bot     -> bestScore = Int.MIN_VALUE
@@ -58,8 +58,8 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
 
         if(moves.isEmpty() || depth == 0) {
             bestScore = score()
-        } else {
-
+        }
+        else {
             moves.forEach {
                 cells[it].data = player
 
@@ -109,18 +109,16 @@ class Bot(board: Board, private val human: Seed, private val bot: Seed) {
      * returns a minimax score based on the board status
      */
     private fun score(): Int {
-        if(hasPlayerWon(human)) {
-            return -10
-        }
-        else if(hasPlayerWon(bot)) {
-            return 10
-        }
-        else {
-            return 0
+        return when {
+            hasPlayerWon(human) -> -10
+            hasPlayerWon(bot) -> 10
+            else -> 0
         }
     }
 
-
+    /**
+     * returns whether or not the given player has won
+     */
     private fun hasPlayerWon(player: Seed): Boolean {
 
         // horizontal

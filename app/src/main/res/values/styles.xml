@@ -33,6 +33,19 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="house_imagebutton">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="house_image">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
     <style name="cellgrid_tablerow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

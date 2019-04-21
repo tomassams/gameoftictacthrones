@@ -5,7 +5,6 @@ package com.example.tictactoe.model
  */
 class Board {
 
-    // not sure if we have any use for the x&y coordinates just yet, but lets go with it
     var cells = arrayOf(
         Cell(), Cell(), Cell(),
         Cell(), Cell(), Cell(),

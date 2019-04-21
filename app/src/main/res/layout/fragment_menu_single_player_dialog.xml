@@ -22,7 +22,7 @@
                 android:hint="Your name"
                 android:textAlignment="center"/>
         <TextView
-                android:text="Select your seed to start"
+                android:text="Select your house to start"
                 android:ems="10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/selectSeedText"
@@ -31,14 +31,16 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <Button
-                    android:text="Circle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/pickCircleBtn" android:layout_weight="1"/>
-            <Button
-                    android:text="Cross"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/pickCrossBtn" android:layout_weight="1"/>
+            <ImageButton
+                    style="@style/house_imagebutton"
+                    android:id="@+id/pickCircleBtn"
+                    android:layout_weight="1"
+                    android:src="@drawable/house_baratheon"/>
+            <ImageButton
+                    style="@style/house_imagebutton"
+                    android:id="@+id/pickCrossBtn"
+                    android:layout_weight="1"
+                    android:src="@drawable/house_targaryen"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -65,7 +65,7 @@ class Game {
         }
 
         //val botMove = bot.getRandomMove() // use for "easy" difficulty
-        val botMove = bot.getBestMove() // use for "expert" difficulty
+        val botMove: Int = bot.getBestMove() // use for "expert" difficulty
 
         board.cells[botMove].data = currentPlayer
 
@@ -77,9 +77,11 @@ class Game {
         } else if(board.isDraw()) {
             currentGameState = GameState.DRAW
         }
-
     }
 
+    /**
+     * simple helper to get the opposite player seed
+     */
     fun opposite(seed: Seed): Seed {
         return when(seed) {
             Seed.CIRCLE -> Seed.CROSS

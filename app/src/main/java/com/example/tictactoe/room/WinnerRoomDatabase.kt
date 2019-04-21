@@ -34,15 +34,7 @@ public abstract class WinnerRoomDatabase : RoomDatabase() {
         }
 
         fun populateDatabase(winnerDao: WinnerDao) {
-            winnerDao.deleteAll()
-
-            /*
-            TODO: remove dummy data after verification
-            var winner = Winner(name = "Ola Nordmann")
-            winnerDao.insert(winner)
-            winner = Winner(name  = "Kari Nordmann")
-            winnerDao.insert(winner)
-            */
+            // placeholder - use if we want to populate the db with some initial data
         }
 
         fun getDatabase(
