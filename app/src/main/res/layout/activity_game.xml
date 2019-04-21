@@ -3,62 +3,15 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/gameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_thewall"
         tools:context=".controller.GameActivity">
-    <TextView
-            android:id="@+id/turnInfoTextView"
-            style="@style/got_font"
-            android:text="Game status display"
-            android:paddingTop="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-    <TableLayout
-            android:id="@+id/tableLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-        <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_0" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_1" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_2" style="@style/cell_imagebutton"/>
-        </TableRow>
-        <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_3" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_4" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_5" style="@style/cell_imagebutton"/>
-        </TableRow>
-        <TableRow style="@style/cellgrid_tablerow">
-            <ImageButton android:id="@+id/cell_6" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_7" style="@style/cell_imagebutton"/>
-            <ImageButton android:id="@+id/cell_8" style="@style/cell_imagebutton"/>
-        </TableRow>
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp">
-            <Chronometer android:id="@+id/game_timer" style="@style/got_font"/>
-        </TableRow>
-        <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp">
-            <Button
-                    android:id="@+id/mainmenu_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Main menu"
-            />
-        </TableRow>
-    </TableLayout>
+    <fragment
+            android:id="@+id/gameLayout"
+            android:name="com.example.tictactoe.controller.GameFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_game"
+    />
 </android.support.constraint.ConstraintLayout>
