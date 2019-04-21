@@ -12,6 +12,7 @@
     <TextView
             android:id="@+id/turnInfoTextView"
             style="@style/got_font"
+            android:layout_width="0dp"
             android:text="@string/game_status_display_placeholder"
             android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/tableLayout"

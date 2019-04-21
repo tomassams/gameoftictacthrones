@@ -172,11 +172,11 @@ class GameFragment : Fragment() {
         turnInfoTextView.text = when(game.currentGameState) {
             GameState.CIRCLE_WINS -> {
                 val player = seedToPlayerName(Seed.CIRCLE)
-                "$player wins"
+                "$player wins!"
             }
             GameState.CROSS_WINS -> {
                 val player = seedToPlayerName(Seed.CROSS)
-                "$player wins"
+                "$player wins!"
             }
             GameState.DRAW -> "Its a draw!"
             GameState.PLAYING -> "Next move: $player"
@@ -190,7 +190,6 @@ class GameFragment : Fragment() {
                 currentButton.isEnabled = false
             }
 
-            // TODO: fix house selection
             when(currentCell.data) {
                 Seed.CROSS  -> currentButton.setImageResource(R.drawable.house_targaryen)
                 Seed.CIRCLE -> currentButton.setImageResource(R.drawable.house_baratheon)
