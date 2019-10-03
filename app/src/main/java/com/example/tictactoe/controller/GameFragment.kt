@@ -198,4 +198,14 @@ class GameFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer.stop()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        timer.start()
+    }
+
 }
